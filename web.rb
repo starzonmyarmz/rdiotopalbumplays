@@ -19,5 +19,5 @@ end
 
 get '/albums/:key' do |key|
   content_type 'application/json', :charset => 'utf-8'
-  return rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 20 }).to_json
+  return rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 20, :extras => 'tracks,Track.playCount' }).to_json
 end

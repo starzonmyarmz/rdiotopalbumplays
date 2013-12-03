@@ -11,13 +11,19 @@
       $.getJSON('/albums/' + key, function(data) {
         var html = '';
 
+        console.log(data)
+
         for (var i = 0, len = data.result.length; i < len; i++ ) {
           if (data.result[i].releaseDate.indexOf(year) === 0) {
             html += '<li>' + data.result[i].name + '</li>';
           }
         }
 
-        $('ul').append(html);
+        if (html) {
+          $('ul').append(html);
+        } else {
+          $('ul').append('<li>No albums this year...</li>')
+        }
 
       });
 
