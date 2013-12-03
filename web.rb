@@ -17,4 +17,7 @@ get '/user/:vanityName' do |vanityName|
   return rdio.call('findUser', { :vanityName => vanityName }).to_json
 end
 
-# albums = rdio.call('getAlbumsInCollection', { 'type' => 'Artist' })
+get '/albums/:key' do |key|
+  content_type 'application/json', :charset => 'utf-8'
+  return rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 20 }).to_json
+end
