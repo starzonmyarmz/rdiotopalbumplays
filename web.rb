@@ -23,5 +23,7 @@ end
 
 get '/popular/:key' do |key|
   content_type 'application/json', :charset => 'utf-8'
-  return rdio.call('getHeavyRotation', { :user => key, :type => 'albums', :count => 20 })['result'].to_json
+  heavyRotation = rdio.call('getHeavyRotation', { :user => key, :type => 'albums', :count => 20 })['result'].to_json
+  heavyRotation = heavyRotation.select { |albums| albumbs['artist'] == 'Five Iron Frenzy' }
+  return heavyRotation
 end
