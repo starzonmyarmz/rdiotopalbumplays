@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'json'
 
 require './rdio'
 require './rdio_creds'
@@ -14,10 +13,15 @@ end
 
 get '/user/:vanityName' do |vanityName|
   content_type 'application/json', :charset => 'utf-8'
-  return rdio.call('findUser', { :vanityName => vanityName }).to_json
+  return rdio.call('findUser', { :vanityName => vanityName })['result'].to_json
 end
 
 get '/albums/:key' do |key|
   content_type 'application/json', :charset => 'utf-8'
-  return rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 20, :extras => 'tracks,Track.playCount' }).to_json
+  return rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 20, :extras => 'tracks,Track.playCount' })['result'].to_json
+end
+
+get '/popular/:key' do |key|
+  content_type 'application/json', :charset => 'utf-8'
+  return rdio.call('getHeavyRotation', { :user => key, :type => 'albums', :count => 20 })['result'].to_json
 end

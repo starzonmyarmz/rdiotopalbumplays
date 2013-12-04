@@ -1,0 +1,14 @@
+ul {
+  list-style: none;
+  margin-bottom: 3em;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.count,
+.tracks {
+  display: none;
+}
