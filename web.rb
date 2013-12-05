@@ -21,7 +21,8 @@ get '/albums/:key' do |key|
   return rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 20, :extras => 'tracks,Track.playCount' })['result'].to_json
 end
 
-get '/popular/:key' do |key|
+get '/popular/:key/:year/:page' do |key, year, page|
   content_type 'application/json', :charset => 'utf-8'
-  return rdio.call('getHeavyRotation', { :user => key, :type => 'albums', :count => 20 })['result'].to_json
+  heavy_rotation = rdio.call('getHeavyRotation', { :user => key, :type => 'albums', :count => 20, :start => 20 * page.to_i })['result']
+  return heavy_rotation.select { |s| s['releaseDate'].match year }.to_json
 end
