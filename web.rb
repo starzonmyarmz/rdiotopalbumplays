@@ -1,6 +1,6 @@
 require 'sinatra'
 
-require './rdio'
+require './lib/rdio'
 require './rdio_creds'
 
 rdio = Rdio.new([RDIO_CONSUMER_KEY, RDIO_CONSUMER_SECRET])
