@@ -10,8 +10,9 @@ html {
 
 body {
   color: #444;
-  font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
-  font-weight: 100;
+  font-family: "Source Sans Pro", HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
   line-height: 1.5;
   margin: 0;
   text-align: center;
@@ -21,7 +22,7 @@ body {
 
 section {
   background: inherit;
-  padding: 20% 25% 0;
+  padding: 20% 30% 0;
   position: absolute;
   top: 0;
   width: 100%;
@@ -41,7 +42,7 @@ footer {
 h1 {
   color: #222;
   font-size: 28px;
-  font-weight: normal;
+  font-weight: 600;
   line-height: 1.2;
   margin: 0 0 30px;
   padding: 5px;
@@ -49,7 +50,7 @@ h1 {
 
 h2 {
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1.2;
   margin: 40px 0 0;
 }
@@ -57,8 +58,6 @@ h2 {
 a {
   color: #178fd5;
 }
-
-
 
 /* ==================== Entry Form ==================== */
 
@@ -92,6 +91,7 @@ label {
   letter-spacing: 0.5px;
   margin: 5px;
   text-align: left;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 input,
@@ -101,6 +101,7 @@ button {
   display: inline-block;
   font-family: inherit;
   font-size: 20px;
+  font-weight: 300;
   line-height: normal;
   margin: 0;
   padding: 9px 15px;
@@ -109,13 +110,12 @@ button {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   width: 100%;
-  -webkit-font-smoothing: antialiased;
 }
 
 input {
   background: rgba(23, 143, 213, 0.15);
   box-shadow: inset 0 1px 0 rgba(23, 143, 213, 0.15);
-  color: rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.65);
 }
 
 input:focus {
@@ -167,8 +167,6 @@ input:-moz-placeholder {
   width: 100%;
 }
 
-
-
 /* ==================== Learn More ==================== */
 
 .learn {
@@ -201,8 +199,6 @@ input:-moz-placeholder {
   top: -2px;
 }
 
-
-
 /* ==================== Loading ==================== */
 
 .loading {
@@ -213,13 +209,41 @@ input:-moz-placeholder {
 }
 
 .loading-is-visible .loading {
-   opacity: 1;
+  opacity: 1;
   -webkit-transition: all 0.25s 0.75s;
   transition: all 0.25s 0.75s;
   visibility: visible;
 }
 
+b,
+i {
+  opacity: 0.5;
+}
 
+b {
+  background: url(musicnote1.svg);
+  background-size: 100%;
+  display: inline-block;
+  height: 24px;
+  width: 23px;
+}
+
+i {
+  -webkit-animation: bounce .5s 1s both;
+  animation: bounce .5s 1s both;
+  background: url(musicnote2.svg);
+  background-size: 100%;
+  display: inline-block;
+  height: 24px;
+  width: 17px;
+}
+
+@-keyframes bounce {
+  50% {
+    -webkit-transform: translateY(-7px);
+    transform: translateY(-7px);
+  }
+}
 
 /* ==================== Albums ==================== */
 
