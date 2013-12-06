@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 
-  <title></title>
+  <title>Rdio user's top albums in collection</title>
 
   <link rel="stylesheet" href="application.css">
 
@@ -13,15 +13,41 @@
 
 <body>
 
-  <input type="text" id="username" placeholder="rdio username" value="starzonmyarmz">
-  <input type="text" id="year" placeholder="year" value="2012">
-  <button>Submit</button>
+  <section class="form">
+    <h1>Grab a Rdio user’s top albums in their&nbsp;collection.</h1>
+    <div class="field username">
+      <label for="username">Rdio username</label>
+      <input type="text" id="username" value="starzonmyarmz" autofocus>
+    </div>
+    <div class="field year">
+      <label for="username">Release year</label>
+      <input type="text" id="year" placeholder="year" value="<%= Time.now.year %>">
+    </div>
+    <div class="field submit">
+      <button class="get-albums">Get the Albums</button>
+    </div>
+    <h2>or <a href="#" class="learn-more">learn more</a>.</h2>
+  </section>
 
-  <div class="loading"><span></span> albums</div>
+  <section class="loading">
+    <span></span> albums found!
+  </section>
+
+  <section class="learn">
+    <h1>What the heck is this?</h1>
+    <p>In cursus, nibh non semper feugiat, lorem diam tempor augue, quis vulputate velit nulla ut neque. Vivamus pretium metus ut purus consequat, varius sollicitudin magna dignissim. Quisque porttitor leo sit amet laoreet sagittis. Maecenas condimentum facilisis sem facilisis consectetur. Vestibulum mollis lacinia lorem sit amet placerat. Integer imperdiet orci et.</p>
+    <p>This was built by <a href="//iamdanielmarino.com">Daniel Marino</a>, and is powered by <a href="//heroku.com">Heroku</a>, <a href="//sinatrarb.com">Sinatra</a>, and the <a href="//www.rdio.com/developers/">Rdio&nbsp;API</a>. It also utilizes <a href="//jquery.com">jQuery</a> and <a href="//handlebarsjs.com/">Handlebars</a>. Check it out on <a href="//github.com/starzonmyarmz/rdiotopalbumplays">Github</a>.</p>
+    <h2><button class="go-back">Go Back</button></h2>
+  </section>
 
   <ul></ul>
 
+  <script id="entry-template" type="text/x-handlebars-template">
+
+  </script>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="handlebars-v1.1.2.js"></script>
   <script src="application.js"></script>
 
 </body>
