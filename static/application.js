@@ -32,16 +32,16 @@
                 total++;
                 $('.loading span').text(total);
                 $('html').addClass('loading-is-visible');
-                html += '<li><span><img src="' + result[i].icon + '"></span></li>';
+                html += '<div class="album"><span><img src="' + result[i].bigIcon + '"></span></div>';
               }
             }
 
             loadAlbums(page + 1);
           } else {
             if (html) {
-              $('ul').append(html);
+              $('.albums').append(html);
             } else {
-              $('ul').append('<li>No albums this year...</li>')
+              $('.albums').append('No albums this year...')
             }
             $('html').toggleClass('loading-is-visible albums-are-visible');
           }

@@ -58,38 +58,7 @@ a {
   color: #178fd5;
 }
 
-ul {
-  list-style: none;
-  margin-bottom: 3em;
-}
 
-li {
-  float: left;
-  margin: 15px;
-}
-
-/*span {
-  box-shadow: 0 1px 0 #fff;
-  display: block;
-  position: relative;
-}
-
-span:after {
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.5, rgba(255, 255, 255, .1)), color-stop(0.501, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0)));
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  bottom: 0;
-  content: "";
-  display: block;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}*/
-
-img {
-  height: 200px;
-  width: 200px;
-}
 
 /* ==================== Entry Form ==================== */
 
@@ -234,7 +203,7 @@ input:-moz-placeholder {
 
 
 
-/* ==================== Learn More ==================== */
+/* ==================== Loading ==================== */
 
 .loading {
   opacity: 0;
@@ -248,4 +217,23 @@ input:-moz-placeholder {
   -webkit-transition: all 0.25s 0.75s;
   transition: all 0.25s 0.75s;
   visibility: visible;
+}
+
+
+
+/* ==================== Albums ==================== */
+
+.albums {
+  padding: 0;
+}
+
+.album {
+  float: left;
+  width: 33.33%;
+}
+
+.album img {
+  display: block;
+  height: 100%;
+  width: 100%;
 }

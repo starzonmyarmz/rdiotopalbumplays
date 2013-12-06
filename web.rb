@@ -23,7 +23,7 @@ end
 
 get '/pop/:key/:year/:page' do |key, year, page|
   content_type 'application/json', :charset => 'utf-8'
-  pop = rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 25, :start => 25 * page.to_i })['result']
+  pop = rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 25, :start => 25 * page.to_i, :extras => 'bigIcon' })['result']
   #return pop.select { |s| s['releaseDate'].match year }.to_json
   return pop.to_json
 end
