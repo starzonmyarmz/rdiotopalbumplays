@@ -275,6 +275,10 @@ i:nth-child(4) {
   width: 33.33%;
 }
 
+.album span {
+  display: block;
+}
+
 .album img {
   display: block;
   height: 100%;

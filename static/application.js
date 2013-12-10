@@ -28,10 +28,11 @@
           if (result.length > 0) {
 
             for (var i = 0, len = result.length; i < len; i++ ) {
-              if (result[i].releaseDate.indexOf(year) === 0) {
+              var r = result[i];
+              if (r.releaseDate.indexOf(year) === 0) {
                 total++;
                 $('.loading span').text(total);
-                html += '<div class="album"><span><img src="' + result[i].bigIcon + '"></span></div>';
+                html += '<div class="album" data-band="' + r.artist + '" data-album="' + r.name + '"><span><img src="' + r.bigIcon + '"></span></div>';
               }
             }
 
