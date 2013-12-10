@@ -210,38 +210,57 @@ input:-moz-placeholder {
 
 .loading-is-visible .loading {
   opacity: 1;
-  -webkit-transition: all 0.25s 0.75s;
-  transition: all 0.25s 0.75s;
+  -webkit-transform: translateY(15px);
+  transform: translateY(15px);
+  -webkit-transition: all 0.25s 1s;
+  transition: all 0.25s 1s;
   visibility: visible;
 }
 
-b,
 i {
+  -webkit-animation: notes 1s infinite;
+  animation: notes 1s infinite;
+  color: #178fd5;
+  display: inline-block;
+  font-size: 20px;
+  font-style: normal;
+  margin: 0 3px;
   opacity: 0.5;
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
 }
 
-b {
-  background: url(musicnote1.svg);
-  background-size: 100%;
-  display: inline-block;
-  height: 24px;
-  width: 23px;
+i:nth-child(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
 }
 
-i {
-  -webkit-animation: bounce .5s 1s both;
-  animation: bounce .5s 1s both;
-  background: url(musicnote2.svg);
-  background-size: 100%;
-  display: inline-block;
-  height: 24px;
-  width: 17px;
+i:nth-child(2) {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
 }
 
-@-keyframes bounce {
+i:nth-child(3) {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+i:nth-child(4) {
+  -webkit-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+
+@-webkit-keyframes notes {
   50% {
-    -webkit-transform: translateY(-7px);
-    transform: translateY(-7px);
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-keyframes notes {
+  50% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 

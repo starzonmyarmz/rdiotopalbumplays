@@ -14,7 +14,7 @@
     var year = $('#year').val();
 
     $('ul').html('');
-    $('html').addClass('form-is-hidden')
+    $('html').addClass('form-is-hidden loading-is-visible')
 
     $.getJSON('/user/' + encodeURIComponent(user), function(result) {
 
@@ -23,7 +23,7 @@
       var total = 0;
 
       var loadAlbums = function(page) {
-        $.getJSON('/pop/' + key + '/' + year + '/' + page, function(result) {
+        $.getJSON('/popular/' + key + '/' + year + '/' + page, function(result) {
 
           if (result.length > 0) {
 
@@ -31,11 +31,11 @@
               if (result[i].releaseDate.indexOf(year) === 0) {
                 total++;
                 $('.loading span').text(total);
-                $('html').addClass('loading-is-visible');
                 html += '<div class="album"><span><img src="' + result[i].bigIcon + '"></span></div>';
               }
             }
 
+            // Load more albums starting at the next page
             loadAlbums(page + 1);
           } else {
             if (html) {
@@ -48,6 +48,7 @@
         });
       }
 
+      // Kick off the album loading at page 0
       loadAlbums(0);
     });
   });
