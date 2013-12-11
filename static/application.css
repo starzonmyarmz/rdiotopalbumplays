@@ -259,6 +259,7 @@ i:nth-child(4) {
 
 @-keyframes notes {
   50% {
+    -webkit-transform: scale(1);
     transform: scale(1);
     opacity: 1;
   }
@@ -266,17 +267,82 @@ i:nth-child(4) {
 
 /* ==================== Albums ==================== */
 
-.albums {
+/*.albums {
   padding: 0;
 }
 
 .album {
+  display: block;
   float: left;
+  position: relative;
   width: 33.33%;
+}
+
+.album .details {
+  background: rgba(255, 255, 255, 0.9);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+  width: 100%;
+}
+
+.album:hover .details {
+  opacity: 1;
 }
 
 .album span {
   display: block;
+}
+
+.album img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}*/
+
+
+.albums {
+  opacity: 0;
+  -webkit-transition: all 0.25s 1s;
+  transition: all 0.25s 1s;
+  visibility: hidden;
+}
+
+.albums-are-visible .albums {
+  opacity: 1;
+  -webkit-transition: all 0.25s 1s;
+  transition: all 0.25s 1s;
+  visibility: visible;
+}
+
+.album {
+  color: inherit;
+  display: block;
+  margin-bottom: 30px;
+  min-height: 144px;
+  padding-left: 164px;
+  position: relative;
+  text-align: left;
+  text-decoration: inherit;
+}
+
+.album .details {
+}
+
+.album:hover .details {
+  opacity: 1;
+}
+
+.album span {
+  left: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 144px;
 }
 
 .album img {

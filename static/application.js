@@ -32,7 +32,7 @@
               if (r.releaseDate.indexOf(year) === 0) {
                 total++;
                 $('.loading span').text(total);
-                html += '<div class="album" data-band="' + r.artist + '" data-album="' + r.name + '"><span><img src="' + r.bigIcon + '"></span></div>';
+                html += '<a href="' + r.shortUrl + '" class="album"><span><img src="' + r.bigIcon + '"></span><div class="details"><h3>' + r.name + '</h3><h4>' + r.artist + '</h4></div></a>';
               }
             }
 
@@ -40,6 +40,8 @@
             loadAlbums(page + 1);
           } else {
             if (html) {
+              $('.user').text(user);
+              $('.year').text(year);
               $('.albums').append(html);
             } else {
               $('.albums').append('No albums this year...')
