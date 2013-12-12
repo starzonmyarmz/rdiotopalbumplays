@@ -3,12 +3,11 @@
 <head>
 
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="robots" content="noindex, nofollow">
 
   <title>Rdio user's top albums in collection</title>
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:100,300,400,600,700,300italic,400italic,600italic,700italic">
-
   <link rel="stylesheet" href="application.css">
 
 </head>
@@ -19,7 +18,7 @@
     <h1>Grab a Rdio user’s top albums from their&nbsp;collection.</h1>
     <div class="field username">
       <label for="username">Rdio username</label>
-      <input type="text" id="username" value="starzonmyarmz" autofocus>
+      <input type="text" id="username" value="" autofocus>
     </div>
     <div class="field year">
       <label for="username">Release year</label>
@@ -33,10 +32,7 @@
 
   <section class="loading">
     <div class="spinner">
-      <i>♪</i>
-      <i>♫</i>
-      <i>♪</i>
-      <i>♫</i>
+      <i>♪</i><i>♫</i><i>♪</i><i>♫</i>
     </div>
     <h2><span></span> albums found...</h2>
   </section>
@@ -46,13 +42,13 @@
   </section>
 
   <section class="learn">
-    <h1>What the heck is this?</h1>
+    <h1>What is this?</h1>
     <p>I was inspired to create this after recently being asked to list my top ten albums for 2013 <a href="//www.getharvest.com">at work</a>. This will go through a Rdio user’s entire collection and will list them by most played for the supplied release year.</p>
-    <p>This was built by <a href="//iamdanielmarino.com">Daniel Marino</a>, and is powered by <a href="//heroku.com">Heroku</a>, <a href="//sinatrarb.com">Sinatra</a>, and the <a href="//www.rdio.com/developers/">Rdio&nbsp;API</a>. It also utilizes <a href="//jquery.com">jQuery</a> and <a href="//handlebarsjs.com/">Handlebars</a>. Check it out on <a href="//github.com/starzonmyarmz/rdiotopalbumplays">Github</a>.</p>
+    <p>This was built by <a href="//iamdanielmarino.com">Daniel Marino</a>, and is powered by <a href="//heroku.com">Heroku</a>, <a href="//sinatrarb.com">Sinatra</a>, and the <a href="//www.rdio.com/developers/">Rdio&nbsp;API</a>. Check it out on <a href="//github.com/starzonmyarmz/rdiotopalbumplays">Github</a>.</p>
     <h2><button class="go-back">Go Back</button></h2>
   </section>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="jquery-2.0.3.min.js"></script>
   <script src="application.js"></script>
 
 </body>
