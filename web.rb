@@ -25,6 +25,7 @@ end
 get '/popular/:key/:year/:page' do |key, year, page|
   content_type 'application/json', :charset => 'utf-8'
   pop = rdio.call('getAlbumsInCollection', { :user => key, :sort => 'playCount', :count => 25, :start => 25 * page.to_i, :extras => 'bigIcon' })['result']
-  #return pop.select { |s| s['releaseDate'].match year }.to_json
+  # Not using because it messes with pagination
+  # return pop.select { |s| s['releaseDate'].match year }.to_json
   return pop.to_json
 end
