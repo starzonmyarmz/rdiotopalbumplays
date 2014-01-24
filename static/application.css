@@ -68,7 +68,7 @@ h4 {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 600;
 }
 
 a {
@@ -88,11 +88,6 @@ a {
   -webkit-transform: translateY(-15px);
   transform: translateY(-15px);
   visibility: hidden;
-}
-
-.learn-is-visible .form {
-  -webkit-transition: all 0.25s 0.25s;
-  transition: all 0.25s 0.25s;
 }
 
 .field {
@@ -183,38 +178,6 @@ input:-moz-placeholder {
   width: 100%;
 }
 
-/* ==================== Learn More ==================== */
-
-.learn {
-  opacity: 0;
-  -webkit-transition: all 0.25s 0.25s;
-  transition: all 0.25s 0.25s;
-  visibility: hidden;
-}
-
-.learn-is-visible .learn {
-  opacity: 1;
-  -webkit-transform: translateY(15px);
-  transform: translateY(15px);
-  -webkit-transition: all 0.25s 0.75s;
-  transition: all 0.25s 0.75s;
-  visibility: visible;
-}
-
-.go-back {
-  width: auto;
-}
-
-.go-back:before {
-  display: inline-block;
-  content: "◄";
-  font-size: 70%;
-  padding-right: 5px;
-  position: relative;
-  text-decoration: none;
-  top: -2px;
-}
-
 /* ==================== Loading ==================== */
 
 .loading {
@@ -283,7 +246,6 @@ i:nth-child(4) {
 
 .loading strong {
   display: block;
-  font-weight: 600;
   margin-bottom: 5px;
 }
 

@@ -3,11 +3,6 @@
 
   var html;
 
-  $('.learn-more, .go-back').on('click', function(evt) {
-    evt.preventDefault();
-    $('html').toggleClass('form-is-hidden learn-is-visible');
-  });
-
   $('.get-albums').on('click', function() {
 
     var user = $('#username').val();
