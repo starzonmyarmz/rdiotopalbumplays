@@ -18,11 +18,11 @@
     <h1>Grab a Rdio user’s top albums <br> from their&nbsp;collection</h1>
     <div class="field username">
       <label for="username">Rdio user</label>
-      <input type="text" id="username" value="" autofocus>
+      <input type="text" id="username" value="" autofocus required>
     </div>
     <div class="field year">
       <label for="username">Release year</label>
-      <input type="text" id="year" placeholder="year" value="<%= Time.now.year %>">
+      <input type="text" id="year" placeholder="year" minlength="4" maxlength="4" value="<%= Time.now.year %>" required>
     </div>
     <div class="field submit">
       <button class="get-albums">Get the Albums</button>
