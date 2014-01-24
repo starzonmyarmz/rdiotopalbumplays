@@ -31,7 +31,7 @@
               var r = result[i];
               if (r.releaseDate.indexOf(year) === 0) {
                 total++;
-                $('.loading span').text(total);
+                $('.loading strong').text(total + ' Albums found...');
                 html += '<a href="' + r.shortUrl + '" class="album"><span><img src="' + r.bigIcon + '"></span><div class="details"><h3>' + r.name + '</h3><h4>' + r.artist + '</h4></div></a>';
               }
             }
