@@ -55,4 +55,10 @@
       loadAlbums(0);
     });
   });
+
+  $(document).on('keypress', function(evt) {
+    if (evt.keyCode === 13) {
+      $('.get-albums').click();
+    }
+  })
 }());
