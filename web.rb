@@ -1,9 +1,8 @@
 require 'sinatra'
 
 require './lib/rdio'
-require './rdio_creds'
 
-rdio = Rdio.new([RDIO_CONSUMER_KEY, RDIO_CONSUMER_SECRET])
+rdio = Rdio.new([ENV['RDIO_CONSUMER_KEY'], ENV['RDIO_CONSUMER_SECRET']])
 
 set :public, File.dirname(__FILE__) + '/static'
 
