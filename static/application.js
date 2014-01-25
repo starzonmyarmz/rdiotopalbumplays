@@ -69,7 +69,6 @@
   });
 
   $('.reset').on('click', function() {
-    $('.albums-container').html('');
     $('#username').val('').focus();
     $('html').toggleClass('form-is-hidden albums-are-visible');
   });

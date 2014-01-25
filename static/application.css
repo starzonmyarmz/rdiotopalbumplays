@@ -270,10 +270,10 @@ i:nth-child(4) {
   min-height: 100%;
   opacity: 0;
   overflow: hidden;
-  padding: 00;
+  padding: 0;
   text-align: left;
-  -webkit-transition: all 0.25s 1s;
-  transition: all 0.25s 1s;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
   visibility: hidden;
 }
 
@@ -293,14 +293,19 @@ i:nth-child(4) {
 
 .reset {
   cursor: pointer;
-  font-size: 2em;
+  font-size: 0.75em;
   float: right;
-  line-height: 31px;
   opacity: 0.75;
+  position: relative;
+  top: 4px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 .reset:hover {
   opacity: 1;
+  -webkit-transform: translateX(5px);
+  transform: translateX(5px);
 }
 
 .albums h1 a {
