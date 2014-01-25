@@ -10,7 +10,7 @@
 
     if (user && year) {
 
-      $('ul').html('');
+      $('.albums-container').html('');
       $('html').addClass('form-is-hidden loading-is-visible');
       $('.error').remove();
 
@@ -18,6 +18,7 @@
 
         var key   = result.key;
         var html  = '';
+        var plural = '';
         var total = 0;
 
         var loadAlbums = function(page) {
@@ -29,8 +30,11 @@
                 var r = result[i];
                 if (r.releaseDate.indexOf(year) === 0) {
                   total++;
-                  $('.loading strong').text(total + ' Albums found...');
-                  html += '<a href="' + r.shortUrl + '" class="album"><span><img src="' + r.bigIcon + '"></span><div class="details"><h3>' + r.name + '</h3><h4>' + r.artist + '</h4></div></a>';
+                  if (total !== 1) {
+                    plural = 's';
+                  }
+                  $('.loading strong').text(total + ' Album' + plural + ' found...');
+                  html += '<a class="album" href="' + r.shortUrl + '"><div class="flipper"><div class="front"><img src="' + r.bigIcon + '"></div><div class="back"><div><h3>' + r.name + '</h3><h4>' + r.artist + '</h4></div></div></div></a>';
                 }
               }
 
@@ -38,11 +42,11 @@
               loadAlbums(page + 1);
             } else {
               if (html) {
-                $('.user').text(user);
-                $('.year').text(year);
-                $('.albums').append(html);
+                $('.albums .user').html('<a href="//rdio.com/people/' + user + '/">' + user + '</a>');
+                $('.albums .year').text(year);
+                $('.albums-container').html(html);
               } else {
-                $('.albums').append('No albums this year...')
+                $('.albums-container').html('No albums this year...')
               }
               $('html').toggleClass('loading-is-visible albums-are-visible');
             }
@@ -54,7 +58,6 @@
       });
     } else {
       // Not all the fields are filled out
-      // alert('Please enter a Rdio user and year');
       $('.form h1').after('<div class="error">Please enter a valid Rdio user and year</div>')
     }
   });
@@ -63,5 +66,11 @@
     if (evt.keyCode === 13) {
       $('.get-albums').click();
     }
-  })
+  });
+
+  $('.reset').on('click', function() {
+    $('.albums-container').html('');
+    $('#username').val('').focus();
+    $('html').toggleClass('form-is-hidden albums-are-visible');
+  });
 }());

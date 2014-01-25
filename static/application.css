@@ -266,8 +266,12 @@ i:nth-child(4) {
 /* ==================== Albums ==================== */
 
 .albums {
+  background: #178fd5;
+  min-height: 100%;
   opacity: 0;
-  padding: 75px 0 0;
+  overflow: hidden;
+  padding: 00;
+  text-align: left;
   -webkit-transition: all 0.25s 1s;
   transition: all 0.25s 1s;
   visibility: hidden;
@@ -281,31 +285,98 @@ i:nth-child(4) {
 }
 
 .albums h1 {
+  color: #fff;
   font-weight: 300;
-  margin-bottom: 50px;
+  margin: 1em;
+  padding: 0;
 }
 
-.album {
-  color: inherit;
-  display: block;
-  float: left;
+.reset {
+  cursor: pointer;
+  font-size: 2em;
+  float: right;
+  line-height: 31px;
   opacity: 0.75;
-  padding: 0 5% 2%;
-  position: relative;
-  text-decoration: inherit;
-  width: 33.33%;
 }
 
-.album:hover {
+.reset:hover {
   opacity: 1;
 }
 
-.album:nth-child(3n+2) {
-  clear: left;
+.albums h1 a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.album span {
-  display: block;
+.album {
+  display: inline-block;
+  margin-bottom: -7px; /* I can't figure out why this is needed... */
+  position: relative;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  -webkit-transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s;
+  width: 25%;
+  z-index: 1;
+}
+
+.album:hover {
+  z-index: 5000;
+}
+
+.album:hover .flipper {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 100%;
+}
+
+.flipper {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.front,
+.back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.front {
+  z-index: 2;
+}
+
+.back {
+  background: #fff;
+  bottom: 0;
+  box-shadow: inset 0 0 75px rgba(0, 0, 0, 0.25);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.back > div {
+  padding: 1em;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+.album h3 {
+  margin-top: 0;
 }
 
 .album img {
