@@ -13,6 +13,7 @@
       $('.albums-container').html('');
       $('html').addClass('form-is-hidden loading-is-visible');
       $('.error').remove();
+      $('.loading strong').text('Searching for albums...')
 
       $.getJSON('/user/' + encodeURIComponent(user), function(result) {
 
@@ -34,7 +35,7 @@
                     plural = 's';
                   }
                   $('.loading strong').text(total + ' Album' + plural + ' found...');
-                  html += '<a class="album" href="' + r.shortUrl + '"><div class="flipper"><div class="front"><img src="' + r.bigIcon + '"></div><div class="back"><div><h3>' + r.name + '</h3><h4>' + r.artist + '</h4></div></div></div></a>';
+                  html += '<a class="album" href="' + r.shortUrl + '"><div class="flipper"><div class="front"><img src="' + r.bigIcon + '" onload="$(this).fadeIn();" alt="' + r.title + '"></div><div class="back"><div><h3>' + r.name + '</h3><h4>' + r.artist + '</h4></div></div></div></a>';
                 }
               }
 
