@@ -24,7 +24,7 @@ get '/popular/:key/:year/:page' do |key, year, page|
     :count => 100,
     :start => 100 * page.to_i,
     # Add bigIcon and remove as many unnecessary
-    # attributes as necessary to speed things up
+    # fields as necessary to speed things up
     :extras => 'bigIcon,-artistKey,-albumKey,-albumUrl,-artistUrl,-url,-price,-embedUrl,-icon,-baseIcon,-canSample,-duration,-userKey,-type,-key,-userName,-canSample,-length,-canTether,-rawArtistKey,-trackKeys,-itemTrackKeys' }
   )['result']
 

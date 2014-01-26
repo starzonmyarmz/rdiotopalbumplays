@@ -29,14 +29,14 @@
 
               for (var i = 0, len = result.length; i < len; i++ ) {
                 var r = result[i];
-                if (r.releaseDate.indexOf(year) === 0) {
+                // if (r.releaseDate.indexOf(year) === 0) {
                   total++;
                   if (total !== 1) {
                     plural = 's';
                   }
                   $('.loading strong').text(total + ' Album' + plural + ' found...');
                   html += '<a class="album" href="' + r.shortUrl + '"><div class="flipper"><div class="front"><img src="' + r.bigIcon + '" onload="$(this).fadeIn();" alt="' + r.title + '"></div><div class="back"><div><h3>' + r.name + '</h3><h4>' + r.artist + '</h4></div></div></div></a>';
-                }
+                // }
               }
 
               // Load more albums starting at the next page
