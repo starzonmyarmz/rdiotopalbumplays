@@ -5,7 +5,7 @@
 
   <title>Rdio user's top albums from their collection</title>
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,600">
   <link rel="stylesheet" href="application.css">
 </head>
 
@@ -13,11 +13,11 @@
 
   <section class="form">
     <h1>Grab a Rdio user’s top albums <br> from their&nbsp;collection</h1>
-    <div class="field username">
+    <div class="field-user">
       <label for="username">Rdio user</label>
       <input type="text" id="username" value="" required autofocus>
     </div>
-    <div class="field year">
+    <div class="field-year">
       <label for="username">Release year</label>
       <input type="text" id="year" placeholder="year" minlength="4" maxlength="4" value="<%= Time.now.year %>" required>
     </div>
@@ -40,6 +40,11 @@
   <section class="albums">
     <h1>Top Albums for <strong class="user"></strong> in <strong class="year"></strong> <a class="reset">Start Over →</a></h1>
     <div class="albums-container"></div>
+  </section>
+
+  <section class="no-albums">
+    <h1>Sorry, but there are no albums for <strong class="user"></strong> in  <strong class="year"></strong>.</h1>
+    <a class="reset">Start Over →</a>
   </section>
 
   <script src="jquery-2.1.0.min.js"></script>

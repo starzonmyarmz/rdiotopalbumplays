@@ -39,30 +39,38 @@ footer {
   width: 100%;
 }
 
+h1, h2, h4 {
+  font-weight: 300;
+}
+
 h1 {
   color: #222;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 300;
   line-height: 1.2;
   margin: 0 0 30px;
   padding: 5px;
 }
 
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
 h2 {
   font-size: 16px;
-  font-weight: 400;
   line-height: 1.2;
   margin: 40px 0 0;
 }
 
 h3 {
+  font-weight: 600;
   line-height: 1.2;
   margin: 0.75em 0 0;
 }
 
 h4 {
   color: #808080;
-  font-weight: 400;
   margin: 0;
   text-transform: uppercase;
 }
@@ -73,6 +81,20 @@ strong {
 
 a {
   color: #178fd5;
+}
+
+.reset {
+  cursor: pointer;
+  display: inline-block;
+  opacity: 0.75;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.reset:hover {
+  opacity: 1;
+  -webkit-transform: translateX(5px);
+  transform: translateX(5px);
 }
 
 /* ==================== Entry Form ==================== */
@@ -90,7 +112,7 @@ a {
   visibility: hidden;
 }
 
-.field {
+[class^="field"] {
   display: inline-block;
   padding: 5px;
 }
@@ -176,11 +198,11 @@ input:-moz-placeholder {
   color: rgba(0, 0, 0, 0.35);
 }
 
-.username {
+.field-user {
   width: 66.66%;
 }
 
-.year {
+.field-year {
   width: 33.33%;
 }
 
@@ -211,7 +233,7 @@ i {
   animation: notes 1s infinite;
   color: #178fd5;
   display: inline-block;
-  font-size: 20px;
+  font-size: 26px;
   font-style: normal;
   margin: 0 3px;
   opacity: 0.5;
@@ -291,26 +313,11 @@ i:nth-child(4) {
   padding: 0;
 }
 
-.reset {
-  cursor: pointer;
+.albums .reset {
   font-size: 0.75em;
   float: right;
-  opacity: 0.75;
   position: relative;
   top: 4px;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s;
-}
-
-.reset:hover {
-  opacity: 1;
-  -webkit-transform: translateX(5px);
-  transform: translateX(5px);
-}
-
-.albums h1 a {
-  color: #fff;
-  text-decoration: none;
 }
 
 .album {
@@ -388,4 +395,22 @@ i:nth-child(4) {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+/* ==================== No Albums ==================== */
+
+.no-albums {
+  min-height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  visibility: hidden;
+}
+
+.no-albums-are-visible .no-albums {
+  opacity: 1;
+  -webkit-transition: all 0.25s 1s;
+  transition: all 0.25s 1s;
+  visibility: visible;
 }

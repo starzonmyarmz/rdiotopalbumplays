@@ -42,14 +42,15 @@
               // Load more albums starting at the next page
               loadAlbums(page + 1);
             } else {
+              $('.user').html('<a href="//rdio.com/people/' + user + '/">' + user + '</a>');
+              $('.year').text(year);
               if (html) {
-                $('.albums .user').html('<a href="//rdio.com/people/' + user + '/">' + user + '</a>');
-                $('.albums .year').text(year);
                 $('.albums-container').html(html);
+                $('html').toggleClass('albums-are-visible');
               } else {
-                $('.albums-container').html('No albums this year...')
+                $('html').toggleClass('no-albums-are-visible');
               }
-              $('html').toggleClass('loading-is-visible albums-are-visible');
+              $('html').toggleClass('loading-is-visible');
             }
           });
         }
@@ -71,6 +72,6 @@
 
   $('.reset').on('click', function() {
     $('#username').val('').focus();
-    $('html').toggleClass('form-is-hidden albums-are-visible');
+    $('html').removeClass();
   });
 }());
