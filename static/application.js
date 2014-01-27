@@ -3,6 +3,11 @@
 
   var html;
 
+  var error = function(message) {
+    $('.form h1').after('<div class="error">' + message + '</div>');
+    $('html').removeClass();
+  }
+
   $('.get-albums').on('click', function() {
 
     var user = $('#username').val();
@@ -17,50 +22,54 @@
 
       $.getJSON('/user/' + encodeURIComponent(user), function(result) {
 
-        var key   = result.key;
-        var html  = '';
-        var plural = '';
-        var total = 0;
+        if (result !== null) {
 
-        var loadAlbums = function(page) {
-          $.getJSON('/popular/' + key + '/' + year + '/' + page, function(result) {
+          var key   = result.key;
+          var html  = '';
+          var plural = '';
+          var total = 0;
 
-            if (result.length > 0) {
+          var loadAlbums = function(page) {
+            $.getJSON('/popular/' + key + '/' + year + '/' + page, function(result) {
 
-              for (var i = 0, len = result.length; i < len; i++ ) {
-                var r = result[i];
-                // if (r.releaseDate.indexOf(year) === 0) {
+              if (result.length > 0) {
+                for (var i = 0, len = result.length; i < len; i++ ) {
+                  var r = result[i];
                   total++;
                   if (total !== 1) {
                     plural = 's';
                   }
                   $('.loading strong').text(total + ' Album' + plural + ' found...');
                   html += '<a class="album" href="' + r.shortUrl + '"><div class="flipper"><div class="front"><img src="' + r.bigIcon + '" onload="$(this).fadeIn();" alt="' + r.title + '"></div><div class="back"><div><h3>' + r.name + '</h3><h4>' + r.artist + '</h4></div></div></div></a>';
-                // }
-              }
+                }
 
-              // Load more albums starting at the next page
-              loadAlbums(page + 1);
-            } else {
-              $('.user').html('<a href="//rdio.com/people/' + user + '/">' + user + '</a>');
-              $('.year').text(year);
-              if (html) {
-                $('.albums-container').html(html);
-                $('html').toggleClass('albums-are-visible');
+                // Load more albums starting at the next page
+                loadAlbums(page + 1);
               } else {
-                $('html').toggleClass('no-albums-are-visible');
+                $('.user').html('<a href="//rdio.com/people/' + user + '/">' + user + '</a>');
+                $('.year').text(year);
+                if (html) {
+                  $('.albums-container').html(html);
+                  $('html').toggleClass('albums-are-visible');
+                } else {
+                  $('html').toggleClass('no-albums-are-visible');
+                }
+                $('html').toggleClass('loading-is-visible');
               }
-              $('html').toggleClass('loading-is-visible');
-            }
-          });
-        }
+            }).fail(function() {
+              error('Sorry, but we had trouble getting the albums. Please try again.');
+            });
+          }
 
-        // Kick off the album loading at page 0
-        loadAlbums(0);
+          // Kick off the album loading at page 0
+          loadAlbums(0);
+        } else {
+          error('Sorry, but that Rdio user doesn\'t seem to exist . Please try again.');
+        }
       });
     } else {
       // Not all the fields are filled out
-      $('.form h1').after('<div class="error">Please enter a valid Rdio user and year</div>')
+      error('Please enter a valid Rdio user and year.');
     }
   });
 
