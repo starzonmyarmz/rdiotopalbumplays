@@ -14,6 +14,7 @@ get '/user/:vanityName' do |vanityName|
   content_type 'application/json', :charset => 'utf-8'
   return rdio.call('findUser', {
     :vanityName => vanityName,
+    # Remove as many unnecessary fields as necessary to speed things up
     :extras => '-icon500,-baseIcon,-libraryVersion,-type,-icon,-firstName,-lastName' }
   )['result'].to_json
 end
