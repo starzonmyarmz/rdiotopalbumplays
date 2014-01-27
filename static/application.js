@@ -17,7 +17,7 @@
 
       $('.albums-container').html('');
       $('html').addClass('form-is-hidden loading-is-visible');
-      $('.error').remove();
+      $('.error, .albums h1 img').remove();
       $('.loading strong').text('Searching for albums...')
 
       $.getJSON('/user/' + encodeURIComponent(user), function(result) {
@@ -28,6 +28,14 @@
           var html  = '';
           var plural = '';
           var total = 0;
+          var gender = "his";
+
+          if (result.gender === "f") {
+            gender = "her";
+          }
+
+          $('.gender').text(gender);
+          $('.albums h1').prepend('<img src="' + result.icon250 + '" alt="' + user + '" class="avatar">');
 
           var loadAlbums = function(page) {
             $.getJSON('/popular/' + key + '/' + year + '/' + page, function(result) {

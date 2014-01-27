@@ -22,7 +22,7 @@ body {
 
 section {
   background: inherit;
-  padding: 20% 30% 0;
+  padding: 20% 10% 0;
   position: absolute;
   top: 0;
   width: 100%;
@@ -37,6 +37,10 @@ footer {
   padding: 20px;
   position: fixed;
   width: 100%;
+}
+
+br {
+  display: none;
 }
 
 h1, h2, h4 {
@@ -95,6 +99,11 @@ a {
   opacity: 1;
   -webkit-transform: translateX(5px);
   transform: translateX(5px);
+}
+
+.subtext {
+  opacity: 0.35;
+  display: block;
 }
 
 /* ==================== Entry Form ==================== */
@@ -310,14 +319,14 @@ i:nth-child(4) {
   color: #fff;
   font-weight: 300;
   margin: 1em;
-  padding: 0;
+  padding: 0 10%;
+  text-align: center;
 }
 
 .albums .reset {
   font-size: 0.75em;
-  float: right;
   position: relative;
-  top: 4px;
+  top: 10px;
 }
 
 .album {
@@ -328,7 +337,7 @@ i:nth-child(4) {
   perspective: 1000;
   -webkit-transition: box-shadow 0.4s;
   transition: box-shadow 0.4s;
-  width: 25%;
+  width: 33.3333%;
   z-index: 1;
 }
 
@@ -397,6 +406,15 @@ i:nth-child(4) {
   width: 100%;
 }
 
+.avatar {
+  border: 0px #fff solid;
+  border-radius: 100%;
+  display: none;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 48px;
+}
+
 /* ==================== No Albums ==================== */
 
 .no-albums {
@@ -413,4 +431,40 @@ i:nth-child(4) {
   -webkit-transition: all 0.25s 1s;
   transition: all 0.25s 1s;
   visibility: visible;
+}
+
+/* ==================== MQs ==================== */
+
+@media screen and (min-width: 728px) {
+  section {
+    padding: 20% 20% 0;
+  }
+
+  .albums h1 {
+    padding: 0;
+    text-align: left;
+  }
+
+  .avatar,
+  .subtext {
+    display: inline-block;
+  }
+
+  .albums .reset {
+    float: right;
+  }
+
+  .album {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  section {
+    padding: 20% 30% 0;
+  }
+
+  br {
+    display: block;
+  }
 }

@@ -12,7 +12,10 @@ end
 
 get '/user/:vanityName' do |vanityName|
   content_type 'application/json', :charset => 'utf-8'
-  return rdio.call('findUser', { :vanityName => vanityName })['result'].to_json
+  return rdio.call('findUser', {
+    :vanityName => vanityName,
+    :extras => '-icon500,-baseIcon,-libraryVersion,-type,-icon,-firstName,-lastName' }
+  )['result'].to_json
 end
 
 get '/popular/:key/:year/:page' do |key, year, page|
